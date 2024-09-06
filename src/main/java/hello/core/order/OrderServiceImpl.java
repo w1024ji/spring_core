@@ -12,11 +12,24 @@ import org.springframework.stereotype.Component;
 public class OrderServiceImpl implements OrderService{
 
     // OrderServiceImpl은 뭐가 들어올지 몰라. 구체적인 클래스 몰라
-    private final MemberRepository memberRepository;
-    private final DiscountPolicy discountPolicy;
+    private MemberRepository memberRepository;
+    private DiscountPolicy discountPolicy;
+
+    @Autowired
+    public void setMemberRepository(MemberRepository memberRepository){
+        System.out.println("memberRepository = " + memberRepository);
+        this.memberRepository = memberRepository;
+    }
+
+    @Autowired
+    public void setDiscountPolicy(DiscountPolicy discountPolicy){
+        System.out.println("discountPolicy = " + discountPolicy);
+        this.discountPolicy = discountPolicy;
+    }
 
     @Autowired
     public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
+        System.out.println("1. OrderServiceImpl");
         this.memberRepository = memberRepository;
         this.discountPolicy = discountPolicy;
     }
