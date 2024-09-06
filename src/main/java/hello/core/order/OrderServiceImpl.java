@@ -12,8 +12,8 @@ import org.springframework.stereotype.Component;
 public class OrderServiceImpl implements OrderService{
 
     // OrderServiceImpl은 뭐가 들어올지 몰라. 구체적인 클래스 몰라
-    @Autowired private final MemberRepository memberRepository;
-    @Autowired private final DiscountPolicy discountPolicy;
+    private final MemberRepository memberRepository;
+    private final DiscountPolicy discountPolicy;
 
     @Autowired
     public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {

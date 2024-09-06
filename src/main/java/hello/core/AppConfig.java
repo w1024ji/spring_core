@@ -16,7 +16,6 @@ import org.springframework.context.annotation.Configuration;
 public class AppConfig {
 
     @Bean
-    // 나는 MemoryMemberRepository를 사용할거야
     public MemberService memberService(){
         System.out.println("call AppConfig.memberService");
         return new MemberServiceImpl(memberRepository());
@@ -27,11 +26,9 @@ public class AppConfig {
         return new MemoryMemberRepository();
     }
     @Bean
-    // 주입!!
     public OrderService orderService(){
         System.out.println("call AppConfig.orderService");
-//        return new OrderServiceImpl(memberRepository(), discountPolicy());
-        return null;
+        return new OrderServiceImpl(memberRepository(), discountPolicy());
     }
     @Bean
     public DiscountPolicy discountPolicy(){
